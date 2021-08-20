@@ -13,16 +13,19 @@ Specify parameters of the task:
 ## Basic configuration
 
 ### Name
+
 The name of the task to be created.
 
 ![](/images/image005.jpg)
 
 ### Projects
+
 The project that this task will be related with.
 
 ![](/images/image193.jpg)
 
 ### Labels
+
 There are two ways of working with labels (available only if the task is not related to the project):
 
 - The `Constructor` is a simple way to add and adjust labels. To add a new label click the `Add label` button.
@@ -67,6 +70,7 @@ There are two ways of working with labels (available only if the task is not rel
 In `Raw` and `Constructor` mode, you can press the `Copy` button to copy the list of labels.
 
 ### Select files
+
 Press tab `My computer` to choose some files for annotation from your PC.
 If you select tab `Connected file share` you can choose files for annotation from your network.
 If you select ` Remote source` , you'll see a field where you can enter a list of URLs (one URL per line).
@@ -121,20 +125,24 @@ Structure:
 ![](/images/image128_use_cache.jpg)
 
 ### Use zip chunks
+
 Force to use zip chunks as compressed data. Actual for videos only.
 
 ### Use cache
+
 Defines how to work with data. Select the checkbox to switch to the "on-the-fly data processing",
 which will reduce the task creation time (by preparing chunks when requests are received)
 and store data in a cache of limited size with a policy of evicting less popular items.
 See more [here](/docs/manual/advanced/data_on_fly/).
 
 ### Image Quality
+
 Use this option to specify quality of uploaded images.
 The option helps to load high resolution datasets faster.
 Use the value from `5` (almost completely compressed images) to `100` (not compressed images).
 
 ## Overlap Size
+
 Use this option to make overlapped segments.
 The option makes tracks continuous from one segment into another.
 Use it for interpolation mode. There are several options for using the parameter:
@@ -158,23 +166,28 @@ Use it for interpolation mode. There are several options for using the parameter
   even the overlap parameter isn't zero and match between corresponding shapes on adjacent segments is perfect.
 
 ### Segment size
+
 Use this option to divide a huge dataset into a few smaller segments.
 For example, one job cannot be annotated by several labelers (it isn't supported).
 Thus using "segment size" you can create several jobs for the same annotation task.
 It will help you to parallel data annotation process.
 
 ### Start frame
+
 Frame from which video in task begins.
 
 ### Stop frame
+
 Frame on which video in task ends.
 
 ### Frame Step
+
 Use this option to filter video frames.
 For example, enter `2` to reduce frame rate in the video (from 30 fps to 15 fps).
 For image set it will remove every second image.
 
 ### Chunk size
+
 Defines a number of frames to be packed in a chunk when send from client to server.
 Server defines automatically if empty.
 
@@ -186,6 +199,7 @@ Recommended values:
 - More: 1 - 4
 
 ### Dataset Repository
+
 URL link of the repository optionally specifies the path to the repository for storage
 (`default: annotation / <dump_file_name> .zip`).
 The .zip and .xml file extension of annotation are supported.
@@ -200,10 +214,12 @@ Supported URL formats :
 The task will be highlighted in red after creation if annotation isn't synchronized with the repository.
 
 ### Use LFS
+
 If the annotation file is large, you can create a repository with
 [LFS](https://git-lfs.github.com/) support.
 
 ### Issue tracker
+
 Specify full issue tracker's URL if it's necessary.
 
 Push `Submit` button and it will be added into the list of annotation tasks.

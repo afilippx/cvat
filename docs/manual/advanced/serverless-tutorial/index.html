@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.83.1" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<meta name="generator" content="Hugo 0.86.0" /><META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
 <link rel="shortcut icon" href="../../../../favicons/favicon.ico" >
@@ -24,13 +24,13 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/manual/advanced/serverless-tutorial/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2021-07-21T17:23:33&#43;03:00" /><meta property="og:site_name" content="CVAT" />
+<meta property="article:modified_time" content="2021-09-03T15:00:40+03:00" /><meta property="og:site_name" content="CVAT" />
 
 <meta itemprop="name" content="Serverless tutorial">
 <meta itemprop="description" content="Introduction Computers have now become our partners. They help us to solve routine problems, fix mistakes, find information, etc. It is a natural idea to use their compute power to annotate datasets. There are multiple DL models for classification, object detection, semantic segmentation which can do data annotation for us. And it is relatively simple to integrate your own ML/DL solution into CVAT.
 But the world is not perfect and we don&rsquo;t have a silver bullet which can solve all our problems.">
-<meta itemprop="dateModified" content="2021-07-21T17:23:33&#43;03:00" />
-<meta itemprop="wordCount" content="6394">
+<meta itemprop="dateModified" content="2021-09-03T15:00:40+03:00" />
+<meta itemprop="wordCount" content="6556">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Serverless tutorial"/>
 <meta name="twitter:description" content="Introduction Computers have now become our partners. They help us to solve routine problems, fix mistakes, find information, etc. It is a natural idea to use their compute power to annotate datasets. There are multiple DL models for classification, object detection, semantic segmentation which can do data annotation for us. And it is relatively simple to integrate your own ML/DL solution into CVAT.
@@ -39,12 +39,12 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
 
 
 
-<link rel="preload" href="../../../../scss/main.min.9e224f6a62350f4ef5c72b4d3e587be0e8d531620c061c4f0b372a69e4e16b3b.css" as="style">
-<link href="../../../../scss/main.min.9e224f6a62350f4ef5c72b4d3e587be0e8d531620c061c4f0b372a69e4e16b3b.css" rel="stylesheet" integrity="">
+<link rel="preload" href="../../../../scss/main.scss" as="style">
+<link href="../../../../scss/main.scss" rel="stylesheet" integrity="">
 
 
 <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
@@ -63,63 +63,61 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
         <a class="navbar-brand" href="../../../../about/">
-		<span class="navbar-logo"><svg width="98" height="27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M101 0v29l-52.544.001C44.326 35.511 35.598 40 25.5 40 11.417 40 0 31.27.0 20.5S11.417 1 25.5 1c4.542.0 8.807.908 12.5 2.5V0h63z" id="logoA"/></defs><g transform="translate(-2 -1)" fill="none" fill-rule="evenodd"><mask id="logoB" fill="#fff"><use xlink:href="#logoA"/></mask><path d="M48.142 1c4.736.0 6.879 3.234 6.879 5.904v2.068h-4.737V6.904c0-.79-.789-2.144-2.142-2.144-1.654.0-2.368 1.354-2.368 2.144v15.192c0 .79.714 2.144 2.368 2.144 1.353.0 2.142-1.354 2.142-2.144v-2.068h4.737v2.068c0 2.67-2.143 5.904-6.88 5.904C42.956 28 41 24.766 41 22.134V6.904C41 4.234 42.955 1 48.142 1zM19-6c9.389.0 17 7.611 17 17s-7.611 17-17 17S2 20.389 2 11 9.611-6 19-6zm42.256 7.338 3.345 19.48h.075l3.42-19.48h5l-6.052 26.324h-5L56.22 1.338h5.037zm20.706.0 5.413 26.324h-4.699l-.94-6.13h-4.548l-.902 6.13h-4.435l5.413-26.324h4.698zm18.038.0v3.723h-4.849v22.6h-4.699v-22.6h-4.81V1.338H1e2zM19 4a7 7 0 100 14 7 7 0 000-14zm60.557 4.295h-.113l-1.466 9.439h3.007l-1.428-9.439z" fill="#fff" fill-rule="nonzero" mask="url(#logoB)"/></g></svg></span>
-	</a>
-	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
-		<ul class="navbar-nav mt-2 mt-lg-0">
-			
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link active" href="../../../../docs/" ><span class="active">Documentation</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="../../../../about/" ><span>About</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="https://cvat.org" target="_blank" ><span>Try it now</span></a>
-			</li>
-			
-			
-			<li class="nav-item dropdown d-none d-lg-block">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	Releases
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	
-	<a class="dropdown-item" href="../../../../">develop</a>
-	
-</div>
-
-			</li>
-			
-			
-		</ul>
-	</div>
-	<div class="navbar-nav d-none d-lg-block">
+    <span class="navbar-logo"><svg width="98" height="27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M101 0v29l-52.544.001C44.326 35.511 35.598 40 25.5 40 11.417 40 0 31.27.0 20.5S11.417 1 25.5 1c4.542.0 8.807.908 12.5 2.5V0h63z" id="logoA"/></defs><g transform="translate(-2 -1)" fill="none" fill-rule="evenodd"><mask id="logoB" fill="#fff"><use xlink:href="#logoA"/></mask><path d="M48.142 1c4.736.0 6.879 3.234 6.879 5.904v2.068h-4.737V6.904c0-.79-.789-2.144-2.142-2.144-1.654.0-2.368 1.354-2.368 2.144v15.192c0 .79.714 2.144 2.368 2.144 1.353.0 2.142-1.354 2.142-2.144v-2.068h4.737v2.068c0 2.67-2.143 5.904-6.88 5.904C42.956 28 41 24.766 41 22.134V6.904C41 4.234 42.955 1 48.142 1zM19-6c9.389.0 17 7.611 17 17s-7.611 17-17 17S2 20.389 2 11 9.611-6 19-6zm42.256 7.338 3.345 19.48h.075l3.42-19.48h5l-6.052 26.324h-5L56.22 1.338h5.037zm20.706.0 5.413 26.324h-4.699l-.94-6.13h-4.548l-.902 6.13h-4.435l5.413-26.324h4.698zm18.038.0v3.723h-4.849v22.6h-4.699v-22.6h-4.81V1.338H1e2zM19 4a7 7 0 100 14 7 7 0 000-14zm60.557 4.295h-.113l-1.466 9.439h3.007l-1.428-9.439z" fill="#fff" fill-rule="nonzero" mask="url(#logoB)"/></g></svg></span>
+  </a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      
+      
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="nav-link active" href="../../../../docs/" ><span class="active">Documentation</span></a>
+      </li>
+      
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="nav-link" href="../../../../about/" ><span>About</span></a>
+      </li>
+      
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        
+        
+        
+        
+        
+        
+        <a class="nav-link" href="https://cvat.org" target="_blank" ><span>Try it now</span></a>
+      </li>
+      
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        
+        
+        
+        
+        
+        
+        <a class="nav-link" href="https://github.com/openvinotoolkit/cvat" target="_blank" ><i class='fab fa-github'></i><span>GitHub</span></a>
+      </li>
+      
+      
+      
+    </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
 
 
 
@@ -130,7 +128,7 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.4b821abda750a409beeb50d8ef6a788c.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.62b5be528d17161c897f959729e5a760.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -166,7 +164,7 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="../../../../offline-search-index.4b821abda750a409beeb50d8ef6a788c.json"
+  data-offline-search-index-json-src="../../../../offline-search-index.62b5be528d17161c897f959729e5a760.json"
   data-offline-search-base-href="../../../../"
   data-offline-search-max-results="10"
 >
@@ -349,6 +347,31 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstasks-page-li">
+    <a href="../../../../docs/manual/basics/tasks-page/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstasks-page"><span class="">Tasks page</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstask-details-li">
     <a href="../../../../docs/manual/basics/task-details/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstask-details"><span class="">Task details</span></a>
     
@@ -399,6 +422,131 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsbasic-navigation-li">
+    <a href="../../../../docs/manual/basics/basic-navigation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsbasic-navigation"><span class="">Basic navigation</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstop-panel-li">
+    <a href="../../../../docs/manual/basics/top-panel/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstop-panel"><span class="">Top Panel</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicscontrols-sidebar-li">
+    <a href="../../../../docs/manual/basics/controls-sidebar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicscontrols-sidebar"><span class="">Controls sidebar</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsobjects-sidebar-li">
+    <a href="../../../../docs/manual/basics/objects-sidebar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsobjects-sidebar"><span class="">Objects sidebar</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsworkspace-li">
+    <a href="../../../../docs/manual/basics/workspace/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsworkspace"><span class="">Workspace</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasics3d-task-workspace-li">
     <a href="../../../../docs/manual/basics/3d-task-workspace/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasics3d-task-workspace"><span class="">3D task workspace</span></a>
     
@@ -424,8 +572,8 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstypes-of-shapes-li">
-    <a href="../../../../docs/manual/basics/types-of-shapes/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstypes-of-shapes"><span class="">Types of shapes</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsstandard-3d-mode-basics-li">
+    <a href="../../../../docs/manual/basics/standard-3d-mode-basics/" title="Standard 3D mode (basics)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsstandard-3d-mode-basics"><span class="">Standard 3D mode</span></a>
     
   </li>
 
@@ -449,8 +597,33 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsbasic-navigation-li">
-    <a href="../../../../docs/manual/basics/basic-navigation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsbasic-navigation"><span class="">Basic navigation</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicssettings-li">
+    <a href="../../../../docs/manual/basics/settings/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicssettings"><span class="">Settings</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstypes-of-shapes-li">
+    <a href="../../../../docs/manual/basics/types-of-shapes/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstypes-of-shapes"><span class="">Types of shapes</span></a>
     
   </li>
 
@@ -524,56 +697,6 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsattribute-annotation-mode-basics-li">
-    <a href="../../../../docs/manual/basics/attribute-annotation-mode-basics/" title="Attribute annotation mode (basics)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsattribute-annotation-mode-basics"><span class="">Attribute annotation mode</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsstandard-3d-mode-basics-li">
-    <a href="../../../../docs/manual/basics/standard-3d-mode-basics/" title="Standard 3D mode (basics)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsstandard-3d-mode-basics"><span class="">Standard 3D mode</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasics3d-object-annotation-basics-li">
     <a href="../../../../docs/manual/basics/3d-object-annotation-basics/" title="3D Object annotation (basics)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasics3d-object-annotation-basics"><span class="">3D Object annotation</span></a>
     
@@ -599,8 +722,8 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicssettings-li">
-    <a href="../../../../docs/manual/basics/settings/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicssettings"><span class="">Settings</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsattribute-annotation-mode-basics-li">
+    <a href="../../../../docs/manual/basics/attribute-annotation-mode-basics/" title="Attribute annotation mode (basics)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsattribute-annotation-mode-basics"><span class="">Attribute annotation mode</span></a>
     
   </li>
 
@@ -626,106 +749,6 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsvocabulary-li">
     <a href="../../../../docs/manual/basics/vocabulary/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsvocabulary"><span class="">Vocabulary</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicstop-panel-li">
-    <a href="../../../../docs/manual/basics/top-panel/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicstop-panel"><span class="">Top Panel</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsworkspace-li">
-    <a href="../../../../docs/manual/basics/workspace/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsworkspace"><span class="">Workspace</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicscontrols-sidebar-li">
-    <a href="../../../../docs/manual/basics/controls-sidebar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicscontrols-sidebar"><span class="">Controls sidebar</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsmanualbasicsobjects-sidebar-li">
-    <a href="../../../../docs/manual/basics/objects-sidebar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualbasicsobjects-sidebar"><span class="">Objects sidebar</span></a>
     
   </li>
 
@@ -779,8 +802,8 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvanceddownloading-annotations-li">
-    <a href="../../../../docs/manual/advanced/downloading-annotations/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvanceddownloading-annotations"><span class="">Downloading annotations</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedprojects-li">
+    <a href="../../../../docs/manual/advanced/projects/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedprojects"><span class="">Projects</span></a>
     
   </li>
 
@@ -806,31 +829,6 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedsearch-li">
     <a href="../../../../docs/manual/advanced/search/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedsearch"><span class="">Search</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedprojects-li">
-    <a href="../../../../docs/manual/advanced/projects/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedprojects"><span class="">Projects</span></a>
     
   </li>
 
@@ -881,6 +879,31 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedtrack-mode-advanced-li">
     <a href="../../../../docs/manual/advanced/track-mode-advanced/" title="Track mode (advanced)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedtrack-mode-advanced"><span class="">Track mode</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvanced3d-object-annotation-advanced-li">
+    <a href="../../../../docs/manual/advanced/3d-object-annotation-advanced/" title="3D Object annotation (advanced)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvanced3d-object-annotation-advanced"><span class="">3D Object annotation</span></a>
     
   </li>
 
@@ -1214,56 +1237,6 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedopencv-tools-li">
-    <a href="../../../../docs/manual/advanced/opencv-tools/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedopencv-tools"><span class="">OpenCV tools</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedai-tools-li">
-    <a href="../../../../docs/manual/advanced/ai-tools/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedai-tools"><span class="">AI Tools</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedannotation-with-tags-li">
     <a href="../../../../docs/manual/advanced/annotation-with-tags/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedannotation-with-tags"><span class="">Annotation with Tags</span></a>
     
@@ -1369,208 +1342,58 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvanced3d-object-annotation-advanced-li">
-    <a href="../../../../docs/manual/advanced/3d-object-annotation-advanced/" title="3D Object annotation (advanced)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvanced3d-object-annotation-advanced"><span class="">3D Object annotation</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedfilter-li">
-    <a href="../../../../docs/manual/advanced/filter/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedfilter"><span class="">Filter</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedshape-grouping-li">
-    <a href="../../../../docs/manual/advanced/shape-grouping/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedshape-grouping"><span class="">Shape grouping</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedreview-li">
-    <a href="../../../../docs/manual/advanced/review/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedreview"><span class="">Review</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedcontext-images-li">
-    <a href="../../../../docs/manual/advanced/context-images/" title="Context images for 2d task" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedcontext-images"><span class="">Context images</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedshortcuts-li">
-    <a href="../../../../docs/manual/advanced/shortcuts/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedshortcuts"><span class="">Shortcuts</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedexport-import-li">
-    <a href="../../../../docs/manual/advanced/export-import/" title="Export/import a task" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedexport-import"><span class="">Export/import</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedtask-synchronization-li">
-    <a href="../../../../docs/manual/advanced/task-synchronization/" title="Task synchronization with a repository" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedtask-synchronization"><span class="">Task synchronization</span></a>
-    
-  </li>
-
-          
-        
-          
-            
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedmodels-li">
     <a href="../../../../docs/manual/advanced/models/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedmodels"><span class="">Models</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedai-tools-li">
+    <a href="../../../../docs/manual/advanced/ai-tools/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedai-tools"><span class="">AI Tools</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedopencv-tools-li">
+    <a href="../../../../docs/manual/advanced/opencv-tools/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedopencv-tools"><span class="">OpenCV tools</span></a>
     
   </li>
 
@@ -1619,8 +1442,8 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedanalytics-li">
-    <a href="../../../../docs/manual/advanced/analytics/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedanalytics"><span class="">Analytics</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedexport-import-li">
+    <a href="../../../../docs/manual/advanced/export-import/" title="Export/import a task" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedexport-import"><span class="">Export/import</span></a>
     
   </li>
 
@@ -1644,8 +1467,33 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
-  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedxml_format-li">
-    <a href="../../../../docs/manual/advanced/xml_format/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedxml_format"><span class="">XML annotation format</span></a>
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvanceddownloading-annotations-li">
+    <a href="../../../../docs/manual/advanced/downloading-annotations/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvanceddownloading-annotations"><span class="">Downloading annotations</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedtask-synchronization-li">
+    <a href="../../../../docs/manual/advanced/task-synchronization/" title="Task synchronization with a repository" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedtask-synchronization"><span class="">Task synchronization</span></a>
     
   </li>
 
@@ -2074,6 +1922,181 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedxml_format-li">
+    <a href="../../../../docs/manual/advanced/xml_format/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedxml_format"><span class="">XML annotation format</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedshortcuts-li">
+    <a href="../../../../docs/manual/advanced/shortcuts/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedshortcuts"><span class="">Shortcuts</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedfilter-li">
+    <a href="../../../../docs/manual/advanced/filter/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedfilter"><span class="">Filter</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedreview-li">
+    <a href="../../../../docs/manual/advanced/review/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedreview"><span class="">Review</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedcontext-images-li">
+    <a href="../../../../docs/manual/advanced/context-images/" title="Context images for 2d task" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedcontext-images"><span class="">Context images</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedshape-grouping-li">
+    <a href="../../../../docs/manual/advanced/shape-grouping/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedshape-grouping"><span class="">Shape grouping</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedanalytics-li">
+    <a href="../../../../docs/manual/advanced/analytics/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedanalytics"><span class="">Analytics Monitoring</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsmanualadvancedcli-li">
     <a href="../../../../docs/manual/advanced/cli/" title="Command line interface (CLI)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsmanualadvancedcli"><span class="">CLI</span></a>
     
@@ -2340,7 +2363,7 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
   
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsadministrationadvancedanalytics-li">
-    <a href="../../../../docs/administration/advanced/analytics/" title="Analytics for Computer Vision Annotation Tool (CVAT)" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsadministrationadvancedanalytics"><span class="">Analytics</span></a>
+    <a href="../../../../docs/administration/advanced/analytics/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsadministrationadvancedanalytics"><span class="">Installation Analytics</span></a>
     
   </li>
 
@@ -2771,7 +2794,7 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
     
 
     <a href="https://github.com/openvinotoolkit/cvat/edit/develop/site/content/en/docs/manual/advanced/serverless-tutorial.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/openvinotoolkit/cvat/new/develop/site/content/en/docs/manual/advanced/serverless-tutorial.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/openvinotoolkit/cvat/new/develop/site/content/en/docs/manual/advanced/serverless-tutorial.md?filename=change-me.md&amp;value=---%0D%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0D%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0D%0Aweight%3A&#43;100%0D%0Adescription%3A&#43;%3E-%0D%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0D%0A---%0D%0A%0D%0A%23%23&#43;Heading%0D%0A%0D%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0D%0A%0D%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0D%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0D%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0D%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0D%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
     <a href="https://github.com/openvinotoolkit/cvat/issues/new?title=Serverless%20tutorial" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
@@ -2811,6 +2834,7 @@ But the world is not perfect and we don&rsquo;t have a silver bullet which can s
         <li><a href="#optimize-using-gpu">Optimize using GPU</a></li>
         <li><a href="#debugging-a-serverless-function">Debugging a serverless function</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#installation-serverless-functions-on-windows-10-with-using-the-ubuntu-subsystem">Installation serverless functions on Windows 10 with using the Ubuntu subsystem</a></li>
       </ul>
     </li>
   </ul>
@@ -2895,8 +2919,8 @@ as serverless functions for the <a href="https://nuclio.io/">Nuclio</a> serverle
 And there are multiple implemented functions which can be
 found in the <a href="https://github.com/openvinotoolkit/cvat/tree/develop/serverless">serverless</a> directory such as <em>Mask RCNN,
 Faster RCNN, SiamMask, Inside Outside Guidance, Deep Extreme Cut</em>, etc.
-Follow <a href="https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation">the installation guide</a> to build and deploy
-these serverless functions. See <a href="https://openvinotoolkit.github.io/cvat/docs/manual/advanced/ai-tools/">the user guide</a> to
+Follow <a href="../../../../docs/administration/advanced/installation_automatic_annotation">the installation guide</a> to build and deploy
+these serverless functions. See <a href="../../../../docs/manual/advanced/ai-tools/">the user guide</a> to
 understand how to use these functions in the UI to automatically annotate data.</p>
 <p>What is a serverless function and why is it used for automatic annotation
 in CVAT? Let&rsquo;s assume that you have a DL model and want to use it for
@@ -2911,7 +2935,7 @@ the <a href="https://en.wikipedia.org/wiki/Function_as_a_service">function as a 
 inside cloud infrastructure which can be called over HTTP. The Nuclio
 serverless platform helps us to implement and manage such functions.</p>
 <p>CVAT supports Nuclio out of the box if it is built properly. See
-<a href="https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation">the installation guide</a> for instructions.
+<a href="../../../../docs/administration/advanced/installation_automatic_annotation">the installation guide</a> for instructions.
 Thus if you deploy a serverless function, the CVAT server can see it and call it
 with appropriate arguments. Of course there are some tricks how to create
 serverless functions for CVAT and we will discuss them in next sections of
@@ -2935,7 +2959,7 @@ cvat_ui      /docker-entrypoint.sh ngin ...   Up             80/tcp
 nuclio       /docker-entrypoint.sh sh - ...   Up (healthy)   80/tcp, 0.0.0.0:8070-&gt;8070/tcp,:::8070-&gt;8070/tcp
 </code></pre><p>Next step is to deploy builtin serverless functions using Nuclio command
 line tool (aka <code>nuctl</code>). It is assumed that you followed
-<a href="https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation">the installation guide</a> and <code>nuctl</code>
+<a href="../../../../docs/administration/advanced/installation_automatic_annotation">the installation guide</a> and <code>nuctl</code>
 is already installed on your operating system. Run the following
 command to check that it works. In the beginning you should not have
 any deployed serverless functions.</p>
@@ -2979,7 +3003,7 @@ any labels, and even another video file if you like. In this case, the <code>Rem
 option was used to specify the video file. Press <code>submit</code> button at the end to
 finish the process.</p>
 <p><img src="../../../../images/create_video_task.png" alt="Create a video annotation task"></p>
-<p>Open the task and use <a href="https://openvinotoolkit.github.io/cvat/docs/manual/advanced/ai-tools/">AI tools</a> to start tracking
+<p>Open the task and use <a href="../../../../docs/manual/advanced/ai-tools/">AI tools</a> to start tracking
 an object. Draw a bounding box around an object.</p>
 <p><img src="../../../../images/start_tracking.png" alt="Start tracking an object"></p>
 <p>Finally you will get bounding boxes for 10 frames by default.</p>
@@ -3020,7 +3044,7 @@ should see detection results. Do not forget to save annotations.</p>
 <p>Also it is possible to run a detector for the whole annotation task. Thus
 CVAT will run the serverless function on every frame of the task and submit
 results directly into database. For more details please read
-<a href="https://openvinotoolkit.github.io/cvat/docs/manual/advanced/automatic-annotation/">the guide</a>.</p>
+<a href="../../../../docs/manual/advanced/automatic-annotation/">the guide</a>.</p>
 <h3 id="objects-segmentation-using-mask-rcnn">Objects segmentation using Mask-RCNN</h3>
 <p>If you have a detector, which returns polygons, you can segment objects. One
 of such detectors is <code>Mask-RCNN</code>. There are several implementations of the
@@ -3108,7 +3132,7 @@ no common advice how to minimize some code.</p>
 <p>Finally you should get something like the code below which has fixed config, read a
 predefined image, initialize predictor, and run inference. As the final step it prints
 all detected bounding boxes with scores and labels.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">detectron2.config</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">get_cfg</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">detectron2.config</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">get_cfg</span>
 <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">detectron2.data.detection_utils</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">read_image</span>
 <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">detectron2.engine.defaults</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DefaultPredictor</span>
 <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">detectron2.data.datasets.builtin_meta</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">COCO_CATEGORIES</span>
@@ -3131,7 +3155,7 @@ all detected bounding boxes with scores and labels.</p>
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;__main__&#34;</span><span style="color:#000;font-weight:bold">:</span>
     <span style="color:#000">cfg</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">setup_cfg</span><span style="color:#000;font-weight:bold">()</span>
     <span style="color:#204a87">input</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;1920px-Cat_poster_1.jpg&#34;</span>
-    <span style="color:#000">img</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">read_image</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">input</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;BGR&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">img</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">read_image</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">input</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;BGR&#34;</span><span style="color:#000;font-weight:bold">)</span>
     <span style="color:#000">predictor</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DefaultPredictor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cfg</span><span style="color:#000;font-weight:bold">)</span>
     <span style="color:#000">predictions</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">predictor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">img</span><span style="color:#000;font-weight:bold">)</span>
     <span style="color:#000">instances</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">predictions</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;instances&#39;</span><span style="color:#000;font-weight:bold">]</span>
@@ -3140,7 +3164,7 @@ all detected bounding boxes with scores and labels.</p>
     <span style="color:#000">pred_classes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">instances</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pred_classes</span>
     <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">box</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">score</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">label</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">pred_boxes</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">scores</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">pred_classes</span><span style="color:#000;font-weight:bold">):</span>
         <span style="color:#000">label</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">COCO_CATEGORIES</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">label</span><span style="color:#000;font-weight:bold">)][</span><span style="color:#4e9a06">&#34;name&#34;</span><span style="color:#000;font-weight:bold">]</span>
-        <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">box</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">tolist</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#204a87">float</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">score</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">label</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">box</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">tolist</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#204a87">float</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">score</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">label</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><h3 id="dl-model-as-a-serverless-function">DL model as a serverless function</h3>
 <p>When we know how to run the DL model locally, we can prepare a serverless
 function which can be used by CVAT to annotate data. Let&rsquo;s see how function.yaml
@@ -3186,7 +3210,7 @@ to handle incoming HTTP requests.</li>
 <li><code>spec.platform</code> describes some important parameters to run your functions like
 <code>restartPolicy</code> and <code>mountMode</code>. Read Nuclio documentation for more details.</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">pth.facebookresearch.detectron2.retinanet_r101</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">namespace</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cvat</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">annotations</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -3255,7 +3279,7 @@ reply with detection results. For the process our entry point is resposible
 which we specified in our function specification <code>handler(context, event)</code>.
 Again in accordance to function specification the entry point should be
 located inside <code>main.py</code>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
 <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">init_context</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">):</span>
     <span style="color:#000">context</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Init context...  0%&#34;</span><span style="color:#000;font-weight:bold">)</span>
 
@@ -3276,7 +3300,7 @@ located inside <code>main.py</code>.</p>
     <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">event</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">body</span>
     <span style="color:#000">buf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">io</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">BytesIO</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">base64</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">b64decode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">]))</span>
     <span style="color:#000">threshold</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">float</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;threshold&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">))</span>
-    <span style="color:#000">image</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">convert_PIL_to_numpy</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Image</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;BGR&#34;</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">image</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">convert_PIL_to_numpy</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Image</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;BGR&#34;</span><span style="color:#000;font-weight:bold">)</span>
 
     <span style="color:#000">predictions</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">context</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">user_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">model_handler</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">image</span><span style="color:#000;font-weight:bold">)</span>
 
@@ -3302,7 +3326,7 @@ located inside <code>main.py</code>.</p>
 <h3 id="deploy-retinanet-serverless-function">Deploy RetinaNet serverless function</h3>
 <p>To use the new serverless function you have to deploy it using <code>nuctl</code> command.
 The actual deployment process is described in
-<a href="https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation">automatic annotation guide</a>.</p>
+<a href="../../../../docs/administration/advanced/installation_automatic_annotation">automatic annotation guide</a>.</p>
 <details>
 <summary>
 <pre><code class="language-console" data-lang="console">$ ./serverless/deploy_cpu.sh ./serverless/pytorch/facebookresearch/detectron2/retinanet/
@@ -3328,7 +3352,7 @@ The actual deployment process is described in
 to modify instructions above to run the function on the target device. In most
 cases it will be necessary to modify installation instructions only.</p>
 <p>For <code>RetinaNet R101</code> which was added above modifications will look like:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff"><span style="color:#a40000">--- function.yaml	2021-06-25 21:06:51.603281723 +0300
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff"><span style="color:#a40000">--- function.yaml	2021-06-25 21:06:51.603281723 +0300
 </span><span style="color:#a40000"></span><span style="color:#00a000">+++ function-gpu.yaml	2021-07-07 22:38:53.454202637 +0300
 </span><span style="color:#00a000"></span><span style="color:#800080;font-weight:bold">@@ -90,7 +90,7 @@
 </span><span style="color:#800080;font-weight:bold"></span>       ]
@@ -3381,7 +3405,7 @@ Please see instructions below to setup your environment step by step.</p>
 <p>Let&rsquo;s modify our function.yaml to include <a href="https://github.com/microsoft/debugpy">debugpy</a>
 package and specify that <code>maxWorkers</code> count is 1. Otherwise both workers will
 try to use the same port and it will lead to an exception in python code.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">RUN</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">RUN</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">pip3 install debugpy</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">triggers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -3389,7 +3413,7 @@ try to use the same port and it will lead to an exception in python code.</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">maxWorkers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Change <code>main.py</code> to listen to a port (e.g. 5678). Insert code below
 in the beginning of your file with entry point.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">debugpy</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">debugpy</span>
 <span style="color:#000">debugpy</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">listen</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">5678</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div><p>After these changes deploy the serverless function once again. For
 <code>serverless/pytorch/facebookresearch/detectron2/retinanet/nuclio/</code> you should
@@ -3436,7 +3460,7 @@ nmanovic@nmanovic-dl-node:~$
 run <code>Serverless Debug</code> configuration, set a breakpoint in <code>main.py</code> and try to call the
 serverless function from CVAT UI. The breakpoint should be triggered in Visual Studio
 Code and it should be possible to inspect variables and debug code.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#000;font-weight:bold">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#000;font-weight:bold">{</span>
   <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Serverless Debug&#34;</span><span style="color:#000;font-weight:bold">,</span>
   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;python&#34;</span><span style="color:#000;font-weight:bold">,</span>
   <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;attach&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -3456,7 +3480,7 @@ Code and it should be possible to inspect variables and debug code.</p>
 port forwarding again.</em></p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>First of all need to check that you are using the recommended version of
-Nuclio framework. In my case it is <code>1.5.16</code> but you need to check <a href="https://openvinotoolkit.github.io/cvat/docs/administration/advanced/installation_automatic_annotation">the
+Nuclio framework. In my case it is <code>1.5.16</code> but you need to check <a href="../../../../docs/administration/advanced/installation_automatic_annotation">the
 installation manual</a>.</p>
 <pre><code class="language-console" data-lang="console">$ nuctl version
 Client version:
@@ -3563,14 +3587,51 @@ CONTAINER ID   IMAGE                             COMMAND                  CREATE
 
 $ docker logs nuclio-nuclio-pth.shiyinzhang.iog
 </code></pre></details>
+<p>If before model deployment you see that the <code>NODE PORT</code> is 0, you need to assign it manually.
+Add the <code>port: 32001</code> attribute to the <code>function.yaml</code> file of each model, before you deploy the model.
+Different ports should be prescribed for different models.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">triggers:
+myHttpTrigger:
+    maxWorkers: 1
+    kind: &#39;http&#39;
+    workerAvailabilityTimeoutMilliseconds: 10000
+    attributes:
+<span style="color:#00a000">+     port: 32001
+</span><span style="color:#00a000"></span>      maxRequestBodySize: 33554432 # 32MB
+</code></pre></div><h3 id="installation-serverless-functions-on-windows-10-with-using-the-ubuntu-subsystem">Installation serverless functions on Windows 10 with using the Ubuntu subsystem</h3>
+<p>If you encounter a problem running serverless functions on Windows 10,
+you can use the Ubuntu subsystem, for this do the following:</p>
+<ol>
+<li>
+<p>Install  <code>WSL 2</code> and <code>Docker Desktop</code> as described in <a href="../../../../docs/administration/basics/installation/#windows-10">installation manual</a></p>
+</li>
+<li>
+<p>Install <a href="https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q">Ubuntu 18.04 from Microsoft store</a>.</p>
+</li>
+<li>
+<p>Enable integration for Ubuntu-18.04 in the settings of <code>Docker Desktop</code> in the <code>Resources</code> <code>WSL integration</code> tab:</p>
+<p><img src="../../../../images/docker_wsl_integration.jpg" alt="Docker WSL integration Ubuntu 18.04"></p>
+</li>
+<li>
+<p>Then you can download and install <code>nuctl</code> on Ubuntu,
+using the <a href="../../../../docs/administration/advanced/installation_automatic_annotation">automatic annotation guide</a>.</p>
+</li>
+<li>
+<p>Install <code>git</code> and clone repository on Ubuntu,
+as described in the <a href="../../../../docs/administration/basics/installation/#ubuntu-1804-x86_64amd64">installation manual</a>.</p>
+</li>
+<li>
+<p>After that, run the commands from this tutorial through Ubuntu.</p>
+</li>
+</ol>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    July 21, 2021
-    : <a  href="https://github.com/openvinotoolkit/cvat/commit/bcead927e42c4a504f65b704825242c1cca9c334">Small changes for serverless tutorial. (bcead927)</a>
+    September 3, 2021
+    : <a  href="https://github.com/openvinotoolkit/cvat/commit/f2e47bd6524733e78caed1ea1f39283bdf41ae06">sorting headers in Manual (f2e47bd6)</a>
 
 </div>
 
@@ -3652,9 +3713,9 @@ $ docker logs nuclio-nuclio-pth.shiyinzhang.iog
         <div class="footer-disclaimer text-white ">
           <small>Intel technologies may require enabled hardware, software or service activation. // No product or component can be absolutely secure. // Your costs and results may vary. // Performance varies by use, configuration and other factors. // See our complete legal <u><a href="https://edc.intel.com/content/www/us/en/products/performance/benchmarks/overview/?r=219444055">Notices and Disclaimers</a></u>. // Intel is committed to respecting human rights and avoiding complicity in human rights abuses. See Intel’s <a href="https://www.intel.com/content/www/us/en/policy/policy-human-rights.html"><u>Global Human Rights Principles</u></a>. Intel’s products and software are intended only to be used in applications that do not cause or contribute to a violation of an internationally recognized human right.</small>
       </div>
-	
-		<p class="mt-2"><a href="../../../../about/">About</a></p>
-	
+  
+    <p class="mt-2"><a href="../../../../about/">About</a></p>
+  
       </div>
     </div>
   </div>
